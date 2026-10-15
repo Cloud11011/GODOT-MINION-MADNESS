@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://obk2143lrwyy"]
+
+[ext_resource type="Texture2D" uid="uid://bkuf6isf45f0p" path="res://assets/sprites/minion.png" id="1_d0vkw"]
+[ext_resource type="Script" uid="uid://dk07y6b6nh0yp" path="res://scripts/minions.gd" id="1_vc0lt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vc0lt"]
+atlas = ExtResource("1_d0vkw")
+region = Rect2(0, 0, 175, 418)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1s80v"]
+atlas = ExtResource("1_d0vkw")
+region = Rect2(175, 0, 175, 418)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6fldl"]
+atlas = ExtResource("1_d0vkw")
+region = Rect2(350, 0, 175, 418)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_odhgw"]
+atlas = ExtResource("1_d0vkw")
+region = Rect2(525, 0, 175, 418)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pco66"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vc0lt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1s80v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6fldl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_odhgw")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 7.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pco66"]
+radius = 5.0
+height = 16.0
+
+[node name="Minions" type="CharacterBody2D" unique_id=894372652]
+collision_layer = 2
+script = ExtResource("1_vc0lt")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1218303656]
+position = Vector2(4.281248, -3.5624952)
+scale = Vector2(0.08821431, 0.07864834)
+sprite_frames = SubResource("SpriteFrames_pco66")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=40738399]
+position = Vector2(6, -6)
+shape = SubResource("CapsuleShape2D_pco66")

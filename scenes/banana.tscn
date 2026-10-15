@@ -1,0 +1,217 @@
+[gd_scene format=3 uid="uid://bs8oily4u2ifi"]
+
+[ext_resource type="Script" uid="uid://jfppky08gans" path="res://scripts/banana.gd" id="1_a45fu"]
+[ext_resource type="Texture2D" uid="uid://wbsyc8woqgif" path="res://assets/sprites/banana.png" id="1_hilkf"]
+[ext_resource type="AudioStream" uid="uid://c37rx0rqqmho7" path="res://assets/sounds/minion banana.mp3" id="3_36b2i"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a45fu"]
+atlas = ExtResource("1_hilkf")
+region = Rect2(0, 0, 197, 724)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_36b2i"]
+atlas = ExtResource("1_hilkf")
+region = Rect2(197, 0, 197, 724)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6bkyw"]
+atlas = ExtResource("1_hilkf")
+region = Rect2(394, 0, 197, 724)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_srj6n"]
+atlas = ExtResource("1_hilkf")
+region = Rect2(591, 0, 197, 724)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5gbb8"]
+atlas = ExtResource("1_hilkf")
+region = Rect2(788, 0, 197, 724)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bp77k"]
+atlas = ExtResource("1_hilkf")
+region = Rect2(985, 0, 197, 724)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hpx1l"]
+atlas = ExtResource("1_hilkf")
+region = Rect2(1182, 0, 197, 724)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bdl2a"]
+atlas = ExtResource("1_hilkf")
+region = Rect2(1379, 0, 197, 724)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s8p0x"]
+atlas = ExtResource("1_hilkf")
+region = Rect2(1576, 0, 197, 724)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k1gf0"]
+atlas = ExtResource("1_hilkf")
+region = Rect2(1773, 0, 197, 724)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e0odt"]
+atlas = ExtResource("1_hilkf")
+region = Rect2(1970, 0, 197, 724)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pco66"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a45fu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_36b2i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6bkyw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_srj6n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5gbb8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bp77k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hpx1l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bdl2a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s8p0x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k1gf0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e0odt")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_roufk"]
+radius = 8.944272
+
+[sub_resource type="Animation" id="Animation_36b2i"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("banana get:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_6bkyw"]
+resource_name = "pickup"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.07666665),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.07666665),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("banana get:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.06666666),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.0666667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_srj6n"]
+_data = {
+&"RESET": SubResource("Animation_36b2i"),
+&"pickup": SubResource("Animation_6bkyw")
+}
+
+[node name="banana" type="Area2D" unique_id=1597111799]
+collision_mask = 2
+script = ExtResource("1_a45fu")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=594588705]
+position = Vector2(20, -18.999996)
+scale = Vector2(0.10532999, 0.100828774)
+sprite_frames = SubResource("SpriteFrames_pco66")
+autoplay = "default"
+frame = 10
+frame_progress = 0.11317955
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1974108434]
+position = Vector2(21, -17)
+shape = SubResource("CircleShape2D_roufk")
+
+[node name="banana get" type="AudioStreamPlayer2D" parent="." unique_id=249920110]
+stream = ExtResource("3_36b2i")
+bus = &"Sfx Banana"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=597726008]
+libraries/ = SubResource("AnimationLibrary_srj6n")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]

@@ -1,0 +1,53 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+Health:90
+PASS: slime hit applies its contact damage
+PASS: right-side hit pushes right and upward
+PASS: hit starts control lock
+PASS: duplicate collision does not apply duplicate damage
+PASS: opposing movement input cannot cancel knockback
+Health:80
+PASS: left-side hit pushes left and upward
+Health:70
+PASS: aligned hit still has horizontal knockback
+PASS: hit flash restores sprite opacity
+Health:90
+PASS: real body and area overlap applies one hit
+PASS: overlapping enemy cannot damage during protection
+Health:80
+PASS: existing overlap damages again after protection expires
+PASS: res://scenes/slime.tscn real stomp defeats enemy without contact damage
+PASS: res://scenes/slime.tscn stomp bounces player
+PASS: res://scenes/slime.tscn dead enemy disables physical collision
+PASS: res://scenes/slime.tscn defeated enemy cannot damage player
+PASS: res://scenes/slime.tscn death removes enemy
+PASS: res://scenes/node_2d.tscn real stomp defeats enemy without contact damage
+PASS: res://scenes/node_2d.tscn stomp bounces player
+PASS: res://scenes/node_2d.tscn dead enemy disables physical collision
+PASS: res://scenes/node_2d.tscn defeated enemy cannot damage player
+PASS: res://scenes/node_2d.tscn death removes enemy
+Health:75
+PASS: rising side contact retains Vector's 25 damage
+PASS: patrol turns at platform edge and remains grounded
+PASS: player outside circle leaves enemy at original patrol speed
+PASS: detection uses reference's smaller 80-pixel circle
+PASS: entering circle starts faster pursuit
+PASS: leaving circle resumes patrol
+PASS: aggro crosses platform edge and obeys gravity
+PASS: fall killzone detects and defeats slime
+PASS: fallen slime is removed
+PASS: main level retains Minion health and movement speed
+PASS: main Vector stays on its original platform
+PASS: bottom Vector shares the original combat mechanics
+PASS: both Vectors survive normal patrol in the actual level
+PASS: original Vector visibly patrols its platform
+PASS: bottom Vector visibly patrols lower ground
+PASS: bottom Vector stands on lower ground above the fall zone
+Health:75
+PASS: main health label updates after damage
+Health:0
+PASS: zero health freezes player immediately
+PASS: existing death reload restores player health and enemies
+PASS: respawn restores both Vector enemies
+Combat regression: 41/41 checks passed

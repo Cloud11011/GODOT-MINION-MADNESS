@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bgv5v2fxqlswe"]
+
+[ext_resource type="Texture2D" uid="uid://bh85jtx66nkg0" path="res://assets/sprites/platformminions.png" id="1_ba0x2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pco66"]
+size = Vector2(27, 5)
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" unique_id=183425429]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=220613071]
+position = Vector2(15.500001, -14.000001)
+scale = Vector2(0.036069658, 0.04615385)
+texture = ExtResource("1_ba0x2")
+region_enabled = true
+region_rect = Rect2(47.822487, 554.88635, 804.5602, 130.89746)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=670850090]
+position = Vector2(15.5, -14.5)
+shape = SubResource("RectangleShape2D_pco66")
