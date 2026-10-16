@@ -23,6 +23,7 @@ buses/default_bus_layout="uid://bjv7yq1lfou3p"
 
 MainTrack="*uid://cb71gkj1nda4o"
 _mcp_game_helper="*res://addons/godot_ai/runtime/game_helper.gd"
+GameManager="*uid://djlfhqmisvohs"
 
 [display]
 
