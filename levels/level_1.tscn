@@ -15,7 +15,7 @@
 [ext_resource type="Script" uid="uid://d2j883bxsocfv" path="res://scenes/label.gd" id="13_voubc"]
 [ext_resource type="Script" uid="uid://ptlc5hncibdm" path="res://scenes/health_label.gd" id="14_0x1rk"]
 [ext_resource type="Script" uid="uid://cmal2frhpwkhu" path="res://scenes/status_label.gd" id="15_pnpm1"]
-[ext_resource type="PackedScene" uid="uid://cbw3q4kgbu3fj" path="res://next_level.tscn" id="16_06ecp"]
+[ext_resource type="PackedScene" uid="uid://cbw3q4kgbu3fj" path="res://level_exit.tscn" id="16_06ecp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0rdsr"]
 texture = ExtResource("2_lrvbd")
@@ -754,4 +754,4 @@ offset_bottom = 68.0
 script = ExtResource("15_pnpm1")
 
 [node name="NextLevel" parent="." unique_id=946880488 instance=ExtResource("16_06ecp")]
-position = Vector2(486, -270)
+position = Vector2(-381, 130)

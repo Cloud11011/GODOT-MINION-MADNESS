@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dkofhlryt1w37" path="res://scenes/level_2_platform.tscn" id="3_pbc48"]
 [ext_resource type="PackedScene" uid="uid://dhfofofiulgji" path="res://scenes/krazyminioninsidecage.tscn" id="4_eqxsl"]
 [ext_resource type="PackedScene" uid="uid://dorfweki005dt" path="res://scenes/krazyminion_enemy.tscn" id="5_b4j7a"]
-[ext_resource type="PackedScene" uid="uid://obk2143lrwyy" path="res://scenes/minions.tscn" id="6_wo48x"]
+[ext_resource type="PackedScene" uid="uid://obk2143lrwyy" path="res://scripts/minions.tscn" id="6_wo48x"]
 [ext_resource type="PackedScene" uid="uid://bs8oily4u2ifi" path="res://scenes/banana.tscn" id="7_y0kc7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eqxsl"]
