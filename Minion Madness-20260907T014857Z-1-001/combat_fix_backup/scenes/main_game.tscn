@@ -15,7 +15,6 @@
 [ext_resource type="Script" uid="uid://d2j883bxsocfv" path="res://scenes/label.gd" id="11_5cypo"]
 [ext_resource type="Script" uid="uid://ptlc5hncibdm" path="res://scenes/health_label.gd" id="14_8xp80"]
 [ext_resource type="Script" uid="uid://cmal2frhpwkhu" path="res://scenes/status_label.gd" id="15_sp04v"]
-[ext_resource type="PackedScene" uid="uid://hskcllalw14j" path="res://pause_menu.tscn" id="16_1v2k6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0rdsr"]
 texture = ExtResource("3_d2op2")
@@ -752,9 +751,3 @@ offset_top = 44.0
 offset_right = 260.0
 offset_bottom = 68.0
 script = ExtResource("15_sp04v")
-
-[node name="PauseMenuCanvas" type="CanvasLayer" parent="." unique_id=352681871]
-
-[node name="PauseMenu" parent="PauseMenuCanvas" unique_id=1073539623 instance=ExtResource("16_1v2k6")]
-
-[editable path="PauseMenuCanvas/PauseMenu"]

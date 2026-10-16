@@ -24,7 +24,6 @@ var original_sprite_modulate: Color
 @onready var health: Health = get_node_or_null("Health") as Health
 @onready var hurtbox = get_node_or_null("HurtBox")
 
-
 func _ready() -> void:
 	add_to_group("player")
 	original_sprite_modulate = animated_sprite.modulate
@@ -32,6 +31,8 @@ func _ready() -> void:
 		health.died.connect(_on_health_died)
 	if hurtbox:
 		hurtbox.hurt.connect(_on_hurt)
+	print(get_tree().current_scene.get_path())
+	print(get_tree().current_scene.find_child("PauseMenu", true, false))
 
 
 func _physics_process(delta: float) -> void:
