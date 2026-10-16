@@ -43,7 +43,7 @@ animations = [{
 radius = 5.0
 height = 16.0
 
-[node name="Minions" type="CharacterBody2D" unique_id=894372652]
+[node name="Minions" type="CharacterBody2D" unique_id=894372652 groups=["Player"]]
 collision_layer = 2
 script = ExtResource("1_vc0lt")
 
