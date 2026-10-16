@@ -1,2 +1,19 @@
-# Godot 4+ specific ignores
+# Godot-generated folders
 .godot/
+.import/
+.mono/
+
+# Generated translations
+*.translation
+
+# Private/local configuration
+.env
+export_credentials.cfg
+*.keystore
+*.jks
+
+# Operating-system files
+.DS_Store
+Thumbs.db
+
+export_presets.cfg

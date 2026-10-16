@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://c7j0cy44hxhgf"]
+
+[ext_resource type="PackedScene" uid="uid://c7j0cy44hxhgf" path="res://scenes/bananalevel_2.tscn" id="1_db6nh"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pco66"]
+radius = 48.814148
+height = 111.38428
+
+[node name="bananalevel2" unique_id=1015057760 instance=ExtResource("1_db6nh")]
+
+[node name="AnimatedSprite2D" parent="." index="0" unique_id=958646568]
+position = Vector2(44.875004, 352.00003)
+scale = Vector2(0.14340098, 0.1436464)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D" index="0" unique_id=1536921800]
+position = Vector2(49.685825, 41.76902)
+shape = SubResource("CapsuleShape2D_pco66")

@@ -1,0 +1,141 @@
+[gd_scene format=3 uid="uid://dorfweki005dt"]
+
+[ext_resource type="Texture2D" uid="uid://bvfn607o5gkxu" path="res://assets/sprites/krazy minion.png" id="1_0f7nw"]
+[ext_resource type="PackedScene" uid="uid://dtrbka1ef726o" path="res://scenes/killzone.tscn" id="2_w8xp2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hstj3"]
+atlas = ExtResource("1_0f7nw")
+region = Rect2(0, 0, 256, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wwick"]
+atlas = ExtResource("1_0f7nw")
+region = Rect2(256, 0, 256, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8blkb"]
+atlas = ExtResource("1_0f7nw")
+region = Rect2(512, 0, 256, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uorw2"]
+atlas = ExtResource("1_0f7nw")
+region = Rect2(768, 0, 256, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_70fqu"]
+atlas = ExtResource("1_0f7nw")
+region = Rect2(1024, 0, 256, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4w866"]
+atlas = ExtResource("1_0f7nw")
+region = Rect2(1280, 0, 256, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xfx4x"]
+atlas = ExtResource("1_0f7nw")
+region = Rect2(1536, 0, 256, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_65jil"]
+atlas = ExtResource("1_0f7nw")
+region = Rect2(1792, 0, 256, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xmao7"]
+atlas = ExtResource("1_0f7nw")
+region = Rect2(1792, 512, 256, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mjxkd"]
+atlas = ExtResource("1_0f7nw")
+region = Rect2(1536, 512, 256, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_omtr3"]
+atlas = ExtResource("1_0f7nw")
+region = Rect2(1280, 512, 256, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gu400"]
+atlas = ExtResource("1_0f7nw")
+region = Rect2(1024, 512, 256, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7hykt"]
+atlas = ExtResource("1_0f7nw")
+region = Rect2(768, 512, 256, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xh5yi"]
+atlas = ExtResource("1_0f7nw")
+region = Rect2(512, 512, 256, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n06lt"]
+atlas = ExtResource("1_0f7nw")
+region = Rect2(256, 512, 256, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5xku0"]
+atlas = ExtResource("1_0f7nw")
+region = Rect2(0, 512, 256, 512)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pco66"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hstj3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wwick")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8blkb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uorw2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_70fqu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4w866")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xfx4x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_65jil")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xmao7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mjxkd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_omtr3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gu400")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7hykt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xh5yi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n06lt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5xku0")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pco66"]
+radius = 5.0
+height = 22.0
+
+[node name="krazyminion_enemy" type="Node2D" unique_id=1970586340]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=712898350]
+position = Vector2(63, 313.5)
+scale = Vector2(0.117187485, 0.08007811)
+sprite_frames = SubResource("SpriteFrames_pco66")
+
+[node name="killzone" parent="." unique_id=481925406 instance=ExtResource("2_w8xp2")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone" unique_id=53422012]
+position = Vector2(68, 319)
+shape = SubResource("CapsuleShape2D_pco66")
