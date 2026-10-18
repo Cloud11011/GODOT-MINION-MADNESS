@@ -67,11 +67,11 @@ shape = SubResource("CapsuleShape2D_pco66")
 [node name="Health" type="Node" parent="." unique_id=1601254399]
 script = ExtResource("3_8nq3p")
 
-[node name="Hurtbox" type="Area2D" parent="." unique_id=1366516427]
+[node name="HurtBox" type="Area2D" parent="." unique_id=1366516427]
 collision_layer = 0
 collision_mask = 8
 script = ExtResource("4_d8ces")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1422317648]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=1422317648]
 position = Vector2(6, -6)
 shape = SubResource("CapsuleShape2D_jx0e8")
