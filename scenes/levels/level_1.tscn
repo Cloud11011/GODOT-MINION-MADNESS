@@ -728,6 +728,7 @@ theme_override_colors/font_color = Color(0.8905957, 0.8148404, 0, 1)
 theme_override_fonts/font = ExtResource("7_udfhf")
 text = "Minion life: 100/100"
 script = ExtResource("14_0x1rk")
+player_path = NodePath("../../Minions/Health")
 
 [node name="StatusLabel" type="Label" parent="HUD" unique_id=129020971]
 offset_left = 16.0
@@ -735,7 +736,8 @@ offset_top = 44.0
 offset_right = 260.0
 offset_bottom = 68.0
 script = ExtResource("15_pnpm1")
-health_path = NodePath("")
 
 [node name="NextLevel" parent="." unique_id=946880488 instance=ExtResource("16_06ecp")]
 position = Vector2(487, -273)
+
+[editable path="Minions"]
