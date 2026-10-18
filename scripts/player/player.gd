@@ -28,10 +28,17 @@ var original_sprite_modulate: Color
 func _ready() -> void:
 	add_to_group("player")
 	original_sprite_modulate = animated_sprite.modulate
+
 	if health:
 		health.died.connect(_on_health_died)
+
 	if hurtbox:
 		hurtbox.hurt.connect(_on_hurt)
+
+	if GameManager.has_checkpoint:
+		global_position = GameManager.checkpoint_position
+		velocity = Vector2.ZERO
+
 
 
 func _physics_process(delta: float) -> void:

@@ -16,6 +16,7 @@
 [ext_resource type="Script" uid="uid://ca60qpvqni4ij" path="res://scripts/ui/lives_label.gd" id="15_iwr0g"]
 [ext_resource type="Script" uid="uid://cmal2frhpwkhu" path="res://scripts/ui/status_label.gd" id="15_pnpm1"]
 [ext_resource type="PackedScene" uid="uid://cbw3q4kgbu3fj" path="res://scenes/interactables/level_exit.tscn" id="16_06ecp"]
+[ext_resource type="Script" uid="uid://cdy0bisqqbgh5" path="res://scripts/interactables/checkpoint.gd" id="17_bahl2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0rdsr"]
 texture = ExtResource("2_lrvbd")
@@ -476,6 +477,9 @@ size = Vector2(68, 26)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hhfbr"]
 size = Vector2(86, 29)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_np2pn"]
+size = Vector2(24, 34)
+
 [node name="Main Game" type="Node2D" unique_id=679500092]
 y_sort_enabled = true
 
@@ -745,5 +749,29 @@ script = ExtResource("15_pnpm1")
 
 [node name="NextLevel" parent="." unique_id=946880488 instance=ExtResource("16_06ecp")]
 position = Vector2(487, -273)
+
+[node name="Checkpoint1" type="Area2D" parent="." unique_id=1348770855]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("17_bahl2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoint1" unique_id=347276040]
+position = Vector2(171, 130)
+shape = SubResource("RectangleShape2D_np2pn")
+
+[node name="RespawnPoint" type="Marker2D" parent="Checkpoint1" unique_id=2076169143]
+position = Vector2(170, 130)
+
+[node name="Checkpoint2" type="Area2D" parent="." unique_id=911988579]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("17_bahl2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoint2" unique_id=391389635]
+position = Vector2(65, -3)
+shape = SubResource("RectangleShape2D_np2pn")
+
+[node name="RespawnPoint" type="Marker2D" parent="Checkpoint2" unique_id=2018225065]
+position = Vector2(66, -1)
 
 [editable path="Minions"]
