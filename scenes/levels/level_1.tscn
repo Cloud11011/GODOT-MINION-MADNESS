@@ -521,6 +521,11 @@ position = Vector2(-439, 120)
 [node name="Camera2D" type="Camera2D" parent="Minions" unique_id=1048503872]
 position = Vector2(8, -4)
 zoom = Vector2(5, 5)
+limit_left = -464
+limit_top = -320
+limit_right = 496
+limit_bottom = 256
+limit_smoothed = true
 position_smoothing_enabled = true
 
 [node name="GameManager" type="Node" parent="Minions/Camera2D" unique_id=389364458]
