@@ -1,9 +1,13 @@
 [gd_scene format=3 uid="uid://bsussfhq6m8j5"]
 
 [ext_resource type="Texture2D" uid="uid://cp0thc236l00v" path="res://assets/sprites/enemies/vector.png" id="1_6e84v"]
-[ext_resource type="Script" uid="uid://co05qfnup2qc" path="res://scripts/enemies/node_2d.gd" id="1_rnjyy"]
+[ext_resource type="Script" uid="uid://cemowaubtxlr0" path="res://scripts/enemies/enemy.gd" id="1_ehm1a"]
 [ext_resource type="PackedScene" uid="uid://dtrbka1ef726o" path="res://scenes/interactables/killzone.tscn" id="2_4dvvg"]
-[ext_resource type="Script" path="res://scripts/enemies/detection_zone.gd" id="3_detection"]
+[ext_resource type="Script" uid="uid://bphe73i6a3cw1" path="res://scripts/enemies/detection_zone.gd" id="3_detection"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_661gy"]
+radius = 3.0
+height = 12.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4dvvg"]
 atlas = ExtResource("1_6e84v")
@@ -125,21 +129,15 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_661gy"]
-radius = 3.0
-height = 12.0
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_detection"]
 resource_local_to_scene = true
 radius = 80.0
 
 [node name="vector" type="CharacterBody2D" unique_id=812766500]
 collision_layer = 4
-collision_mask = 1
-script = ExtResource("1_rnjyy")
-contact_damage = 25
+script = ExtResource("1_ehm1a")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=118884213]
 position = Vector2(1, -10)
 shape = SubResource("CapsuleShape2D_661gy")
 
@@ -159,6 +157,10 @@ collision_mask = 2
 position = Vector2(-7, 13)
 shape = SubResource("CapsuleShape2D_661gy")
 
+[node name="RayCastDownRight" type="RayCast2D" parent="killzone" unique_id=781394481]
+
+[node name="RayCastDownLeft" type="RayCast2D" parent="killzone" unique_id=1009720101]
+
 [node name="RayCastRight" type="RayCast2D" parent="." unique_id=339343975]
 position = Vector2(1, -10)
 target_position = Vector2(9, 0)
@@ -167,20 +169,16 @@ target_position = Vector2(9, 0)
 position = Vector2(1, -10)
 target_position = Vector2(-9, 0)
 
-[node name="RayCastDownRight" type="RayCast2D" parent="killzone" unique_id=781394481]
+[node name="LedgeCheck" type="RayCast2D" parent="." unique_id=666303256]
+position = Vector2(14, -4)
+target_position = Vector2(0, 16)
 
-[node name="RayCastDownLeft" type="RayCast2D" parent="killzone" unique_id=1009720101]
-
-[node name="LedgeCheck" type="RayCast2D" parent="."]
-position = Vector2(8, -4)
-target_position = Vector2(0, 12)
-
-[node name="DetectionZone" type="Area2D" parent="."]
+[node name="DetectionZone" type="Area2D" parent="." unique_id=1518453467]
 position = Vector2(1, -10)
 collision_layer = 0
 collision_mask = 2
 monitorable = false
 script = ExtResource("3_detection")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionZone"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionZone" unique_id=977065431]
 shape = SubResource("CircleShape2D_detection")

@@ -40,27 +40,36 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 
+
 func _patrol() -> void:
-	# Reverse once at a boundary, allowing ledge/wall checks to override it.
 	if direction > 0 and global_position.x >= start_x + patrol_distance:
 		direction = -1
 	elif direction < 0 and global_position.x <= start_x - patrol_distance:
 		direction = 1
+
 	var wall_ahead := ray_cast_right.is_colliding() if direction > 0 else ray_cast_left.is_colliding()
+
 	if wall_ahead or (is_on_floor() and not _has_floor_ahead()):
 		direction *= -1
+
 	animated_sprite.flip_h = direction < 0
 	velocity.x = direction * speed
 
 
 func _chase_player() -> void:
 	var distance_x := target_player.global_position.x - global_position.x
+
 	if absf(distance_x) <= 2.0:
 		velocity.x = 0.0
 		return
+
 	direction = 1 if distance_x > 0.0 else -1
 	animated_sprite.flip_h = direction < 0
-	# Chasing may cross platform edges; gravity and world collisions apply.
+
+	if is_on_floor() and not _has_floor_ahead():
+		velocity.x = 0.0
+		return
+
 	velocity.x = direction * chase_speed
 
 
@@ -68,6 +77,7 @@ func _has_floor_ahead() -> bool:
 	ledge_check.position.x = absf(ledge_check.position.x) * direction
 	ledge_check.force_raycast_update()
 	return ledge_check.is_colliding()
+
 
 
 func _can_detect_player(body: Node2D) -> bool:
