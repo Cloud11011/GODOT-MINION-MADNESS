@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://opfjmx05ou84"
+path="res://.godot/imported/minion dead.mp3-e347a09e1ea3c3d33503ab38967cde6a.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/sfx/minion dead.mp3"
+dest_files=["res://.godot/imported/minion dead.mp3-e347a09e1ea3c3d33503ab38967cde6a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

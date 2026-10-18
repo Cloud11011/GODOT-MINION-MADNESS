@@ -42,14 +42,14 @@ func _new_arena(floor_width: float = 1600.0) -> void:
 
 
 func _player(at: Vector2):
-	var player = load("res://scenes/player.tscn").instantiate()
+	var player = load("res://scenes/player/player.tscn").instantiate()
 	player.position = at
 	arena.add_child(player)
 	player.set_physics_process(false)
 	return player
 
 
-func _enemy(at: Vector2, scene_path: String = "res://scenes/slime.tscn"):
+func _enemy(at: Vector2, scene_path: String = "res://scenes/enemies/slime.tscn"):
 	var enemy = load(scene_path).instantiate()
 	enemy.position = at
 	arena.add_child(enemy)
@@ -96,7 +96,7 @@ func _run() -> void:
 	await create_timer(0.9).timeout
 	_check(player.health.current_health == 80, "existing overlap damages again after protection expires")
 
-	for scene_path in ["res://scenes/slime.tscn", "res://scenes/node_2d.tscn"]:
+	for scene_path in ["res://scenes/enemies/slime.tscn", "res://scenes/enemies/node_2d.tscn"]:
 		_new_arena()
 		player = _player(Vector2(0.0, 188.0))
 		player.velocity.y = 120.0
@@ -113,7 +113,7 @@ func _run() -> void:
 
 	_new_arena()
 	player = _player(Vector2(30.0, 200.0))
-	slime = _enemy(Vector2(0.0, 200.0), "res://scenes/node_2d.tscn")
+	slime = _enemy(Vector2(0.0, 200.0), "res://scenes/enemies/node_2d.tscn")
 	slime.set_physics_process(false)
 	await _frames(4)
 	player.velocity.y = -100.0
@@ -147,7 +147,7 @@ func _run() -> void:
 	_check(slime.global_position.x > 80.0 and slime.global_position.y > 205.0 and slime.velocity.y > 0.0, "aggro crosses platform edge and obeys gravity")
 
 	_new_arena()
-	var killzone = load("res://scenes/killzone.tscn").instantiate()
+	var killzone = load("res://scenes/interactables/killzone.tscn").instantiate()
 	var kill_shape := CollisionShape2D.new()
 	var kill_rectangle := RectangleShape2D.new()
 	kill_rectangle.size = Vector2(100.0, 40.0)
@@ -164,7 +164,7 @@ func _run() -> void:
 	# Validate the actual main level, including existing health UI and respawn.
 	arena.free()
 	arena = null
-	var main_level = load("res://scenes/main_game.tscn").instantiate()
+	var main_level = load("res://scenes/legacy/main_game.tscn").instantiate()
 	root.add_child(main_level)
 	current_scene = main_level
 	await _frames(8)

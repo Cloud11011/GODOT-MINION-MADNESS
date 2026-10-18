@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cb71gkj1nda4o"]
+
+[ext_resource type="AudioStream" uid="uid://cwjask0k8032b" path="res://assets/audio/music/Fun, Fun, Fun.mp3" id="1_ayl23"]
+
+[node name="main track" type="AudioStreamPlayer2D" unique_id=989855187]
+stream = ExtResource("1_ayl23")
+autoplay = true
+bus = &"Music"

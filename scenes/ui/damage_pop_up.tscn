@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://dqex0ioi7we50"]
+
+[ext_resource type="Script" uid="uid://djtt56cfq1doi" path="res://scripts/ui/damage_pop_up.gd" id="1_t4s2r"]
+
+[node name="DamagePopUp" type="Label" unique_id=1730233290]
+offset_right = 40.0
+offset_bottom = 23.0
+script = ExtResource("1_t4s2r")
