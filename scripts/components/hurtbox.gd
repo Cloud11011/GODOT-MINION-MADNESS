@@ -15,9 +15,13 @@ func _ready() -> void:
 		area_entered.connect(_on_area_entered)
 
 
+
 func _physics_process(delta: float) -> void:
+	if not monitoring:
+		return
+
 	invincibility_left = maxf(invincibility_left - delta, 0.0)
-	# Retry existing overlaps when protection ends.
+
 	for area in get_overlapping_areas():
 		_on_area_entered(area)
 

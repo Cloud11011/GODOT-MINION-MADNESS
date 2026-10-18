@@ -113,8 +113,17 @@ func _on_took_damage(amount: int) -> void:
 func _on_health_died() -> void:
 	if is_dead:
 		return
+
 	is_dead = true
 	knockback_left = 0.0
 	velocity = Vector2.ZERO
+
+	if hurtbox:
+		hurtbox.set_deferred("monitoring", false)
+
 	await get_tree().create_timer(0.4).timeout
-	get_tree().reload_current_scene()
+
+	if not is_inside_tree():
+		return
+
+	GameManager.lose_life()
