@@ -87,6 +87,11 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 10
 
+[node name="HighScoreLabel" type="Label" parent="VBoxContainer" unique_id=1948657201]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_jix8l")
+theme_override_font_sizes/font_size = 35
+
 [node name="StartButton" type="Button" parent="VBoxContainer" unique_id=896021408]
 layout_mode = 2
 size_flags_vertical = 3
@@ -95,7 +100,7 @@ theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_jix8l")
 theme_override_font_sizes/font_size = 35

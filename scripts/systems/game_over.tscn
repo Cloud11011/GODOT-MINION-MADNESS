@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://wkxgsexth4bn"]
+
+[ext_resource type="Texture2D" uid="uid://bws7cr01x6r80" path="res://assets/backgrounds/bg.jpg" id="1_piwx6"]
+[ext_resource type="Script" uid="uid://b2so83t63hnsn" path="res://scripts/systems/end_screen.gd" id="1_xavkd"]
+[ext_resource type="FontFile" uid="uid://c53kogtyjwsss" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_xavkd"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_46gx7"]
+texture = ExtResource("1_piwx6")
+
+[node name="GameOver" type="Control" unique_id=544045519]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xavkd")
+
+[node name="Panel" type="Panel" parent="." unique_id=732366289]
+modulate = Color(0.24840015, 0.24840018, 0.24840015, 1)
+self_modulate = Color(0.92389965, 0.92389965, 0.92389965, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_46gx7")
+
+[node name="Label" type="Label" parent="." unique_id=1531516348]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -555.0
+offset_top = 163.0
+offset_right = 555.0
+offset_bottom = 243.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 0.4963923, 0.61304575, 1)
+theme_override_colors/font_shadow_color = Color(0.12834376, 0.12834376, 0.12834373, 0)
+theme_override_fonts/font = ExtResource("2_xavkd")
+theme_override_font_sizes/font_size = 80
+text = "GAME OVER BITCH"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=321975560]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -216.5
+offset_top = -1.5
+offset_right = 216.5
+offset_bottom = 113.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="ScoreLabel" type="Label" parent="VBoxContainer" unique_id=273183060]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_xavkd")
+theme_override_font_sizes/font_size = 35
+
+[node name="MenuButton" type="Button" parent="VBoxContainer" unique_id=631053606]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_xavkd")
+theme_override_font_sizes/font_size = 50
+text = "MAIN MENU"
