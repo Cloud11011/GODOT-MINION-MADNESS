@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://dorfweki005dt"]
 
 [ext_resource type="Texture2D" uid="uid://bvfn607o5gkxu" path="res://assets/sprites/enemies/krazy minion.png" id="1_0f7nw"]
+[ext_resource type="Script" uid="uid://cemowaubtxlr0" path="res://scripts/enemies/enemy.gd" id="1_y7e38"]
 [ext_resource type="PackedScene" uid="uid://dtrbka1ef726o" path="res://scenes/interactables/killzone.tscn" id="2_w8xp2"]
+[ext_resource type="Script" uid="uid://bphe73i6a3cw1" path="res://scripts/enemies/detection_zone.gd" id="4_kf4lv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hstj3"]
 atlas = ExtResource("1_0f7nw")
@@ -127,15 +129,56 @@ animations = [{
 radius = 5.0
 height = 22.0
 
-[node name="krazyminion_enemy" type="Node2D" unique_id=1970586340]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rej7q"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jx0e8"]
+radius = 191.8463
+
+[node name="krazyminion_enemy" type="CharacterBody2D" unique_id=773948506]
+collision_layer = 4
+script = ExtResource("1_y7e38")
+speed = 80.0
+chase_speed = 135.0
+patrol_distance = 90.0
+contact_damage = 20
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=712898350]
-position = Vector2(63, 313.5)
+position = Vector2(0, -16.5)
 scale = Vector2(0.117187485, 0.08007811)
 sprite_frames = SubResource("SpriteFrames_pco66")
+autoplay = "default"
 
-[node name="killzone" parent="." unique_id=481925406 instance=ExtResource("2_w8xp2")]
+[node name="killzone" parent="." unique_id=481925406 groups=["enemy_hitbox"] instance=ExtResource("2_w8xp2")]
+collision_layer = 8
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="killzone" unique_id=53422012]
-position = Vector2(68, 319)
+position = Vector2(5, -11)
 shape = SubResource("CapsuleShape2D_pco66")
+
+[node name="Timer2" type="Timer" parent="killzone" unique_id=1461259774]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1580896010]
+position = Vector2(5, -11)
+shape = SubResource("CapsuleShape2D_rej7q")
+
+[node name="RayCastLeft" type="RayCast2D" parent="." unique_id=225638218]
+position = Vector2(5, 11)
+target_position = Vector2(-12, 0)
+
+[node name="RayCastRight" type="RayCast2D" parent="." unique_id=1311657437]
+position = Vector2(5, -11)
+target_position = Vector2(12, 0)
+
+[node name="LedgeCheck" type="RayCast2D" parent="." unique_id=1080612269]
+position = Vector2(15, -4)
+target_position = Vector2(0, 18)
+
+[node name="DetectionZone" type="Area2D" parent="." unique_id=1490875605]
+position = Vector2(5, -11)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("4_kf4lv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionZone" unique_id=1505401286]
+shape = SubResource("CircleShape2D_jx0e8")

@@ -1,6 +1,6 @@
 extends Area2D
 
-@onready var game_manager = %GameManager
+@onready var game_manager: Node = get_tree().current_scene.find_child("GameManager", true, false)
 @onready var animation_player = $AnimationPlayer
 
 var collected := false
@@ -24,5 +24,8 @@ func _collect() -> void:
 		return
 
 	collected = true
-	game_manager.add_point()
 	animation_player.play("pickup")
+	if is_instance_valid(game_manager) and game_manager.has_method("add_point"):
+		game_manager.call("add_point")
+	else:
+		GameManager.add_score(1)
