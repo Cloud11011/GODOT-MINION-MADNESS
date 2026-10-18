@@ -754,4 +754,4 @@ offset_bottom = 68.0
 script = ExtResource("15_pnpm1")
 
 [node name="NextLevel" parent="." unique_id=946880488 instance=ExtResource("16_06ecp")]
-position = Vector2(-381, 130)
+position = Vector2(487, -273)
