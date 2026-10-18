@@ -3,8 +3,8 @@ extends Node
 const SAVE_PATH := "user://highscore.save"
 const MAX_LIVES := 3
 const FIRST_LEVEL := "res://scenes/levels/level_1.tscn"
-const GAME_OVER_SCENE := "res://game_over.tscn"
-const WIN_SCENE := "res://win_screen.tscn"
+const GAME_OVER_SCENE := "res://scripts/systems/game_over.tscn"
+const WIN_SCENE := "res://scripts/systems/win_screen.tscn"
 const MENU_SCENE := "res://scenes/ui/main_menu.tscn"
 
 signal score_changed(new_score: int)

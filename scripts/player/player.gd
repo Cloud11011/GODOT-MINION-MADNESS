@@ -23,6 +23,7 @@ var original_sprite_modulate: Color
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var health: Health = get_node_or_null("Health") as Health
 @onready var hurtbox = get_node_or_null("HurtBox")
+@onready var jump_sound_effect: AudioStreamPlayer = $JumpSoundEffect
 
 
 func _ready() -> void:
@@ -53,6 +54,7 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0.0, knockback_friction * delta)
 	else:
 		if Input.is_action_just_pressed(jump_action) and is_on_floor():
+			jump_sound_effect.play()
 			velocity.y = jump_velocity
 		direction = Input.get_axis(move_left_action, move_right_action)
 		velocity.x = direction * speed if direction else move_toward(velocity.x, 0.0, speed)

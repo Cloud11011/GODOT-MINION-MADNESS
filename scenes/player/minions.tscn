@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://dk07y6b6nh0yp" path="res://scripts/player/minions.gd" id="1_vc0lt"]
 [ext_resource type="Script" uid="uid://douthlwmxa5aa" path="res://scripts/components/health.gd" id="3_8nq3p"]
 [ext_resource type="Script" uid="uid://3fyap437ke6r" path="res://scripts/components/hurtbox.gd" id="4_d8ces"]
+[ext_resource type="AudioStream" uid="uid://8vbvxxottdpp" path="res://assets/audio/sfx/lumora_studios-pixel-jump-319167.mp3" id="3_4gfmc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vc0lt"]
 atlas = ExtResource("1_d0vkw")
@@ -75,3 +76,7 @@ script = ExtResource("4_d8ces")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=1422317648]
 position = Vector2(6, -6)
 shape = SubResource("CapsuleShape2D_jx0e8")
+
+[node name="JumpSoundEffect" type="AudioStreamPlayer" parent="." unique_id=1042030480]
+stream = ExtResource("3_4gfmc")
+volume_db = -16.0
