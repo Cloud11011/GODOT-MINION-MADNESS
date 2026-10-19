@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://d0q2g65ahgok" path="res://assets/tilesets/world_tileset.png" id="2_85w88"]
 [ext_resource type="PackedScene" uid="uid://nlek5sno7n55" path="res://scenes/bosses/minion_boss_fight.tscn" id="3_7ydql"]
 [ext_resource type="PackedScene" uid="uid://ccr58ownm5rjq" path="res://scenes/bosses/finalboss.tscn" id="4_85w88"]
+[ext_resource type="PackedScene" uid="uid://bhd2bnltaxq76" path="res://scenes/ui/pause_menu.tscn" id="5_l0or0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_31neg"]
 texture = ExtResource("2_85w88")
@@ -213,3 +214,11 @@ layer_0/tile_data = PackedInt32Array(-1638393, 65536, 14, -1376248, 65536, 14, -
 
 [node name="finalboss" parent="." unique_id=196497201 instance=ExtResource("4_85w88")]
 position = Vector2(265, -327)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2108592325]
+
+[node name="PauseMenu" parent="CanvasLayer" unique_id=675147520 instance=ExtResource("5_l0or0")]
+offset_left = -52.0
+offset_top = 684.0
+offset_right = -52.0
+offset_bottom = 684.0

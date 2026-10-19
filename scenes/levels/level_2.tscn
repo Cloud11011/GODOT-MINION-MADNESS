@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bs8oily4u2ifi" path="res://scenes/interactables/banana.tscn" id="7_y0kc7"]
 [ext_resource type="PackedScene" uid="uid://dbhxctup35gs8" path="res://scenes/ui/game_hud.tscn" id="8_8qukl"]
 [ext_resource type="PackedScene" uid="uid://dtnxgod1k77ix" path="res://scenes/interactables/level_finish.tscn" id="9_3p04p"]
+[ext_resource type="PackedScene" uid="uid://bhd2bnltaxq76" path="res://scenes/ui/pause_menu.tscn" id="10_pause_menu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eqxsl"]
 texture = ExtResource("2_pbc48")
@@ -448,3 +449,7 @@ position = Vector2(1078, 118)
 
 [node name="LevelFinish" parent="." unique_id=1494081509 instance=ExtResource("9_3p04p")]
 position = Vector2(300, 546)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=550777111]
+
+[node name="PauseMenu" parent="CanvasLayer" unique_id=675147520 instance=ExtResource("10_pause_menu")]
