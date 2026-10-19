@@ -743,6 +743,8 @@ player_path = NodePath("../../Minions/Health")
 [node name="LivesLabel" type="Label" parent="HUD" unique_id=55787585]
 offset_right = 40.0
 offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("12_4knja")
+theme_override_font_sizes/font_size = 25
 script = ExtResource("15_iwr0g")
 
 [node name="StatusLabel" type="Label" parent="HUD" unique_id=129020971]
