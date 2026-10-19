@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://obk2143lrwyy" path="res://scenes/player/minions.tscn" id="5_jkxa6"]
 [ext_resource type="Script" uid="uid://dxuf40asaxghr" path="res://scripts/legacy/game_manager.gd" id="6_w75he"]
 [ext_resource type="FontFile" uid="uid://dbjl1e6kdxpl6" path="res://assets/fonts/PixelOperator8.ttf" id="7_udfhf"]
+[ext_resource type="Script" uid="uid://dgis36phv15cm" path="res://scripts/ui/score_label.gd" id="8_np2pn"]
 [ext_resource type="PackedScene" uid="uid://bgv5v2fxqlswe" path="res://scenes/interactables/platform.tscn" id="9_ryfpa"]
 [ext_resource type="PackedScene" uid="uid://bs8oily4u2ifi" path="res://scenes/interactables/banana.tscn" id="10_ntdhj"]
 [ext_resource type="PackedScene" uid="uid://dtrbka1ef726o" path="res://scenes/interactables/killzone.tscn" id="11_0fu15"]
@@ -545,6 +546,7 @@ offset_bottom = -208.0
 theme_override_colors/font_color = Color(0.9638657, 0.815723, 0, 1)
 theme_override_fonts/font = ExtResource("7_udfhf")
 text = "You Got:"
+script = ExtResource("8_np2pn")
 
 [node name="poison krazy minion" type="TileMapLayer" parent="." unique_id=61698003]
 z_index = 10
