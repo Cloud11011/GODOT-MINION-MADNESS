@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dtnxgod1k77ix"]
+
+[ext_resource type="Script" uid="uid://5xvlnf4t3yuo" path="res://scripts/systems/level_finish.gd" id="1_k6375"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4kxuq"]
+size = Vector2(40, 64)
+
+[node name="LevelFinish" type="Area2D" unique_id=1494081509]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_k6375")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1847279027]
+shape = SubResource("RectangleShape2D_4kxuq")
+
+[node name="FINISH" type="Label" parent="." unique_id=60268822]
+offset_right = 40.0
+offset_bottom = 23.0
