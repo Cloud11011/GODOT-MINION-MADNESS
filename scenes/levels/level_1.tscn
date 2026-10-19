@@ -5,17 +5,12 @@
 [ext_resource type="PackedScene" uid="uid://bsussfhq6m8j5" path="res://scenes/enemies/node_2d.tscn" id="3_oqlok"]
 [ext_resource type="Script" uid="uid://douthlwmxa5aa" path="res://scripts/components/health.gd" id="4_7nvrk"]
 [ext_resource type="PackedScene" uid="uid://obk2143lrwyy" path="res://scenes/player/minions.tscn" id="5_jkxa6"]
-[ext_resource type="Script" uid="uid://dxuf40asaxghr" path="res://scripts/legacy/game_manager.gd" id="6_w75he"]
-[ext_resource type="FontFile" uid="uid://dbjl1e6kdxpl6" path="res://assets/fonts/PixelOperator8.ttf" id="7_udfhf"]
-[ext_resource type="Script" uid="uid://dgis36phv15cm" path="res://scripts/ui/score_label.gd" id="8_np2pn"]
 [ext_resource type="PackedScene" uid="uid://bgv5v2fxqlswe" path="res://scenes/interactables/platform.tscn" id="9_ryfpa"]
 [ext_resource type="PackedScene" uid="uid://bs8oily4u2ifi" path="res://scenes/interactables/banana.tscn" id="10_ntdhj"]
 [ext_resource type="PackedScene" uid="uid://dtrbka1ef726o" path="res://scenes/interactables/killzone.tscn" id="11_0fu15"]
+[ext_resource type="PackedScene" uid="uid://dbhxctup35gs8" path="res://scenes/ui/game_hud.tscn" id="11_dnkej"]
 [ext_resource type="FontFile" uid="uid://c53kogtyjwsss" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="12_4knja"]
 [ext_resource type="Script" uid="uid://d2j883bxsocfv" path="res://scripts/ui/label.gd" id="13_voubc"]
-[ext_resource type="Script" uid="uid://ptlc5hncibdm" path="res://scripts/ui/health_label.gd" id="14_0x1rk"]
-[ext_resource type="Script" uid="uid://ca60qpvqni4ij" path="res://scripts/ui/lives_label.gd" id="15_iwr0g"]
-[ext_resource type="Script" uid="uid://cmal2frhpwkhu" path="res://scripts/ui/status_label.gd" id="15_pnpm1"]
 [ext_resource type="PackedScene" uid="uid://cbw3q4kgbu3fj" path="res://scenes/interactables/level_exit.tscn" id="16_06ecp"]
 [ext_resource type="Script" uid="uid://cdy0bisqqbgh5" path="res://scripts/interactables/checkpoint.gd" id="17_bahl2"]
 
@@ -534,20 +529,6 @@ limit_bottom = 256
 limit_smoothed = true
 position_smoothing_enabled = true
 
-[node name="GameManager" type="Node" parent="Minions/Camera2D" unique_id=389364458]
-unique_name_in_owner = true
-script = ExtResource("6_w75he")
-
-[node name="ScoreLabel" type="Label" parent="Minions/Camera2D/GameManager" unique_id=145582179]
-offset_left = -422.0
-offset_top = -257.0
-offset_right = -153.0
-offset_bottom = -208.0
-theme_override_colors/font_color = Color(0.9638657, 0.815723, 0, 1)
-theme_override_fonts/font = ExtResource("7_udfhf")
-text = "You Got:"
-script = ExtResource("8_np2pn")
-
 [node name="poison krazy minion" type="TileMapLayer" parent="." unique_id=61698003]
 z_index = 10
 position = Vector2(1, 1)
@@ -729,32 +710,7 @@ theme_override_font_sizes/font_size = 22
 text = "Minion Madness"
 script = ExtResource("13_voubc")
 
-[node name="HUD" type="CanvasLayer" parent="." unique_id=1093643585]
-
-[node name="HealthLabel" type="Label" parent="HUD" unique_id=862988492]
-offset_left = 16.0
-offset_top = 16.0
-offset_right = 220.0
-offset_bottom = 40.0
-theme_override_colors/font_color = Color(0.8905957, 0.8148404, 0, 1)
-theme_override_fonts/font = ExtResource("7_udfhf")
-text = "Minion life: 100/100"
-script = ExtResource("14_0x1rk")
-player_path = NodePath("../../Minions/Health")
-
-[node name="LivesLabel" type="Label" parent="HUD" unique_id=55787585]
-offset_right = 40.0
-offset_bottom = 23.0
-theme_override_fonts/font = ExtResource("12_4knja")
-theme_override_font_sizes/font_size = 25
-script = ExtResource("15_iwr0g")
-
-[node name="StatusLabel" type="Label" parent="HUD" unique_id=129020971]
-offset_left = 16.0
-offset_top = 44.0
-offset_right = 260.0
-offset_bottom = 68.0
-script = ExtResource("15_pnpm1")
+[node name="HUD" parent="." unique_id=615369625 instance=ExtResource("11_dnkej")]
 
 [node name="NextLevel" parent="." unique_id=946880488 instance=ExtResource("16_06ecp")]
 position = Vector2(487, -273)

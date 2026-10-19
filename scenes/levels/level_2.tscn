@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dorfweki005dt" path="res://scenes/enemies/krazyminion_enemy.tscn" id="5_b4j7a"]
 [ext_resource type="PackedScene" uid="uid://obk2143lrwyy" path="res://scenes/player/minions.tscn" id="6_wo48x"]
 [ext_resource type="PackedScene" uid="uid://bs8oily4u2ifi" path="res://scenes/interactables/banana.tscn" id="7_y0kc7"]
+[ext_resource type="PackedScene" uid="uid://dbhxctup35gs8" path="res://scenes/ui/game_hud.tscn" id="8_8qukl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eqxsl"]
 texture = ExtResource("2_pbc48")
@@ -216,6 +217,11 @@ texture = ExtResource("1_jm1iu")
 
 [node name="Minions" parent="." unique_id=894372652 instance=ExtResource("6_wo48x")]
 position = Vector2(8, 533)
+
+[node name="Camera2D" type="Camera2D" parent="Minions" unique_id=570027417]
+position = Vector2(8, -4)
+zoom = Vector2(5, 5)
+position_smoothing_enabled = true
 
 [node name="TileMap" type="TileMap" parent="." unique_id=1426925904]
 z_index = 1
@@ -436,3 +442,5 @@ position = Vector2(879, 118)
 
 [node name="banana55" parent="." unique_id=1360883807 instance=ExtResource("7_y0kc7")]
 position = Vector2(1078, 118)
+
+[node name="HUD" parent="." unique_id=615369625 instance=ExtResource("8_8qukl")]

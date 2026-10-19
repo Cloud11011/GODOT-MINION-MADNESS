@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://dbhxctup35gs8"]
+
+[ext_resource type="FontFile" uid="uid://dbjl1e6kdxpl6" path="res://assets/fonts/PixelOperator8.ttf" id="1_20ki6"]
+[ext_resource type="Script" uid="uid://ptlc5hncibdm" path="res://scripts/ui/health_label.gd" id="2_n5j44"]
+[ext_resource type="FontFile" uid="uid://c53kogtyjwsss" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="3_x6mpk"]
+[ext_resource type="Script" uid="uid://ca60qpvqni4ij" path="res://scripts/ui/lives_label.gd" id="4_ehshv"]
+[ext_resource type="Script" uid="uid://cmal2frhpwkhu" path="res://scripts/ui/status_label.gd" id="5_4qk33"]
+[ext_resource type="Script" uid="uid://dgis36phv15cm" path="res://scripts/ui/score_label.gd" id="6_tldsg"]
+
+[node name="HUD" type="CanvasLayer" unique_id=615369625]
+
+[node name="HealthLabel" type="Label" parent="." unique_id=575907161]
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 220.0
+offset_bottom = 40.0
+theme_override_colors/font_color = Color(0.8905957, 0.8148404, 0, 1)
+theme_override_fonts/font = ExtResource("1_20ki6")
+text = "Minion life: 100/100"
+script = ExtResource("2_n5j44")
+player_path = NodePath("../../Minions/Health")
+
+[node name="LivesLabel" type="Label" parent="." unique_id=1594765953]
+offset_left = 16.0
+offset_top = 72.0
+offset_right = 56.0
+offset_bottom = 98.0
+theme_override_fonts/font = ExtResource("3_x6mpk")
+theme_override_font_sizes/font_size = 25
+script = ExtResource("4_ehshv")
+
+[node name="StatusLabel" type="Label" parent="." unique_id=1227914204]
+offset_left = 16.0
+offset_top = 44.0
+offset_right = 260.0
+offset_bottom = 68.0
+script = ExtResource("5_4qk33")
+
+[node name="ScoreLabel" type="Label" parent="." unique_id=252176755]
+offset_left = 16.0
+offset_top = 100.0
+offset_right = 56.0
+offset_bottom = 123.0
+script = ExtResource("6_tldsg")
