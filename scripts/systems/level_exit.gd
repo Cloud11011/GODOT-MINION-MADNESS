@@ -5,26 +5,23 @@ extends Area2D
 
 var triggered := false
 
-func _ready() -> void:
-	print("LevelExit is ready!")
-	print("Monitoring: ", monitoring)
-
-	if not body_entered.is_connected(_on_body_entered):
-		body_entered.connect(_on_body_entered)
-
 
 func _on_body_entered(body: Node2D) -> void:
-	print("Something entered LevelExit: ", body.name)
-
 	if triggered:
 		return
 
-	if body.is_in_group("player"):
-		print("Player detected!")
+	if not body.is_in_group("player"):
+		return
 
-		if next_level == null:
-			push_warning("Next level is not assigned!")
-			return
+	if next_level == null:
+		push_warning("Next level is not assigned!")
+		return
 
-		triggered = true
-		get_tree().change_scene_to_packed(next_level)
+	var scene_path := next_level.resource_path
+
+	if scene_path.is_empty():
+		push_error("Next level has no valid resource path.")
+		return
+
+	triggered = true
+	GameManager.go_to_level(scene_path)

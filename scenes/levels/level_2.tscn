@@ -7,7 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://dorfweki005dt" path="res://scenes/enemies/krazyminion_enemy.tscn" id="5_b4j7a"]
 [ext_resource type="PackedScene" uid="uid://obk2143lrwyy" path="res://scenes/player/minions.tscn" id="6_wo48x"]
 [ext_resource type="PackedScene" uid="uid://bs8oily4u2ifi" path="res://scenes/interactables/banana.tscn" id="7_y0kc7"]
-[ext_resource type="PackedScene" uid="uid://bhd2bnltaxq76" path="res://scenes/ui/pause_menu.tscn" id="8_8qukl"]
+[ext_resource type="PackedScene" uid="uid://dbhxctup35gs8" path="res://scenes/ui/game_hud.tscn" id="8_8qukl"]
+[ext_resource type="PackedScene" uid="uid://dtnxgod1k77ix" path="res://scenes/interactables/level_finish.tscn" id="9_3p04p"]
+[ext_resource type="PackedScene" uid="uid://bhd2bnltaxq76" path="res://scenes/ui/pause_menu.tscn" id="10_pause_menu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eqxsl"]
 texture = ExtResource("2_pbc48")
@@ -217,6 +219,16 @@ texture = ExtResource("1_jm1iu")
 
 [node name="Minions" parent="." unique_id=894372652 instance=ExtResource("6_wo48x")]
 position = Vector2(8, 533)
+
+[node name="Camera2D" type="Camera2D" parent="Minions" unique_id=570027417]
+position = Vector2(8, -4)
+zoom = Vector2(5, 5)
+limit_left = -16
+limit_top = -16
+limit_right = 1200
+limit_bottom = 688
+limit_smoothed = true
+position_smoothing_enabled = true
 
 [node name="TileMap" type="TileMap" parent="." unique_id=1426925904]
 z_index = 1
@@ -438,6 +450,13 @@ position = Vector2(879, 118)
 [node name="banana55" parent="." unique_id=1360883807 instance=ExtResource("7_y0kc7")]
 position = Vector2(1078, 118)
 
+[node name="HUD" parent="." unique_id=615369625 instance=ExtResource("8_8qukl")]
+
+[node name="LevelFinish" parent="." unique_id=1494081509 instance=ExtResource("9_3p04p")]
+position = Vector2(592, 224)
+
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=550777111]
 
-[node name="PauseMenu" parent="CanvasLayer" unique_id=675147520 instance=ExtResource("8_8qukl")]
+[node name="PauseMenu" parent="CanvasLayer" unique_id=675147520 instance=ExtResource("10_pause_menu")]
+offset_top = -8.0
+offset_bottom = -8.0
