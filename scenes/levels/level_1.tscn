@@ -17,6 +17,7 @@
 [ext_resource type="Script" uid="uid://cmal2frhpwkhu" path="res://scripts/ui/status_label.gd" id="15_pnpm1"]
 [ext_resource type="PackedScene" uid="uid://cbw3q4kgbu3fj" path="res://scenes/interactables/level_exit.tscn" id="16_06ecp"]
 [ext_resource type="Script" uid="uid://cdy0bisqqbgh5" path="res://scripts/interactables/checkpoint.gd" id="17_bahl2"]
+[ext_resource type="PackedScene" uid="uid://bhd2bnltaxq76" path="res://scenes/ui/pause_menu.tscn" id="18_np2pn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0rdsr"]
 texture = ExtResource("2_lrvbd")
@@ -780,5 +781,9 @@ shape = SubResource("RectangleShape2D_np2pn")
 
 [node name="RespawnPoint" type="Marker2D" parent="Checkpoint2" unique_id=2018225065]
 position = Vector2(66, -1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1043044036]
+
+[node name="PauseMenu" parent="CanvasLayer" unique_id=675147520 instance=ExtResource("18_np2pn")]
 
 [editable path="Minions"]
