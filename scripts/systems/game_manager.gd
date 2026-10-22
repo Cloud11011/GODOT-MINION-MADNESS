@@ -9,10 +9,28 @@ const MENU_SCENE := "res://scenes/ui/main_menu.tscn"
 
 signal score_changed(new_score: int)
 signal lives_changed(new_lives: int)
+signal bananas_changed(amount: int)
 
 var score: int = 0
 var lives: int = MAX_LIVES
 var high_score: int = 0
+var bananas: int = 0
+
+# Ammunition is distinct from the lifetime collection score.
+func add_bananas(amount: int = 1) -> void:
+	if amount <= 0:
+		return
+	bananas += amount
+	bananas_changed.emit(bananas)
+
+
+func use_banana() -> bool:
+	if bananas <= 0:
+		return false
+	bananas -= 1
+	bananas_changed.emit(bananas)
+	return true
+
 
 # Checkpoint
 var has_checkpoint: bool = false
@@ -48,6 +66,8 @@ func lose_life() -> void:
 func start_new_game() -> void:
 	score = 0
 	lives = MAX_LIVES
+	bananas = 0
+	bananas_changed.emit(bananas)
 	score_changed.emit(score)
 	lives_changed.emit(lives)
 	clear_checkpoint()

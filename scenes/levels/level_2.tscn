@@ -8,8 +8,13 @@
 [ext_resource type="PackedScene" uid="uid://obk2143lrwyy" path="res://scenes/player/minions.tscn" id="6_wo48x"]
 [ext_resource type="PackedScene" uid="uid://bs8oily4u2ifi" path="res://scenes/interactables/banana.tscn" id="7_y0kc7"]
 [ext_resource type="PackedScene" uid="uid://dbhxctup35gs8" path="res://scenes/ui/game_hud.tscn" id="8_8qukl"]
-[ext_resource type="PackedScene" uid="uid://dtnxgod1k77ix" path="res://scenes/interactables/level_finish.tscn" id="9_3p04p"]
 [ext_resource type="PackedScene" uid="uid://bhd2bnltaxq76" path="res://scenes/ui/pause_menu.tscn" id="10_pause_menu"]
+
+[ext_resource type="Script" path="res://scripts/systems/level_exit.gd" id="11_boss_exit_script"]
+[ext_resource type="PackedScene" path="res://scenes/bosses/boss_fight.tscn" id="12_boss_arena"]
+
+[sub_resource type="RectangleShape2D" id="BossExitShape"]
+size = Vector2(64, 100)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eqxsl"]
 texture = ExtResource("2_pbc48")
@@ -452,11 +457,31 @@ position = Vector2(1078, 118)
 
 [node name="HUD" parent="." unique_id=615369625 instance=ExtResource("8_8qukl")]
 
-[node name="LevelFinish" parent="." unique_id=1494081509 instance=ExtResource("9_3p04p")]
-position = Vector2(592, 224)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=550777111]
 
 [node name="PauseMenu" parent="CanvasLayer" unique_id=675147520 instance=ExtResource("10_pause_menu")]
 offset_top = -8.0
 offset_bottom = -8.0
+
+[node name="BossExit" type="Area2D" parent="."]
+position = Vector2(1110, 95)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("11_boss_exit_script")
+next_level = ExtResource("12_boss_arena")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BossExit"]
+position = Vector2(0, -25)
+shape = SubResource("BossExitShape")
+
+[node name="Label" type="Label" parent="BossExit"]
+offset_left = -130.0
+offset_top = -110.0
+offset_right = 25.0
+offset_bottom = -70.0
+theme_override_colors/font_color = Color(1, 0.65, 0.2, 1)
+theme_override_font_sizes/font_size = 22
+text = "BOSS FIGHT >"
+
+[connection signal="body_entered" from="BossExit" to="BossExit" method="_on_body_entered"]

@@ -28,4 +28,5 @@ func _collect(body: Node2D) -> void:
 
 	collected = true
 	GameManager.add_score(1)
+	GameManager.add_bananas(1)
 	animation_player.play("pickup")
