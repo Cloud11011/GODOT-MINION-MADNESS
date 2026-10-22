@@ -43,3 +43,12 @@ func die() -> void:
 
 	is_dead = true
 	died.emit()
+
+
+func heal(amount: int) -> bool:
+	if amount <= 0 or is_dead or current_health >= max_health:
+		return false
+
+	current_health = mini(current_health + amount, max_health)
+	health_changed.emit(current_health, max_health)
+	return true
