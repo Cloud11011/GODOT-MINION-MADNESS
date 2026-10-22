@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://ccr58ownm5rjq"]
 
 [ext_resource type="Texture2D" uid="uid://b7oekgo8l1i2g" path="res://assets/sprites/bosses/El Muchacho seperated attacks.png" id="1_7kc52"]
-[ext_resource type="PackedScene" uid="uid://dtrbka1ef726o" path="res://scenes/interactables/killzone.tscn" id="2_jf5jn"]
+[ext_resource type="Script" path="res://scripts/bosses/final_boss.gd" id="2_boss_script"]
+[ext_resource type="Script" path="res://scripts/components/health.gd" id="3_health"]
 [ext_resource type="Texture2D" uid="uid://cj0kkr66o8gka" path="res://assets/sprites/bosses/El Muchacho seperated special attacks.png" id="2_o2383"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o2383"]
@@ -73,7 +74,12 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_o2383")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
 }, {
+"frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_eef1i")
 }, {
@@ -94,7 +100,12 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_2bvnq")
+}],
+"loop": false,
+"name": &"punch",
+"speed": 12.0
 }, {
+"frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_n33ft")
 }, {
@@ -119,25 +130,55 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_hexsj")
 }],
-"loop": 1,
-"name": &"default",
-"speed": 5.0
+"loop": false,
+"name": &"slam",
+"speed": 12.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_661gy"]
-radius = 144.03125
+[sub_resource type="CapsuleShape2D" id="BossBody"]
+radius = 53.0
+height = 170.0
 
-[node name="finalboss" type="Node2D" unique_id=196497201]
+[sub_resource type="RectangleShape2D" id="BossContact"]
+size = Vector2(130, 170)
+
+[sub_resource type="RectangleShape2D" id="BossAttack"]
+size = Vector2(160, 150)
+
+[node name="finalboss" type="CharacterBody2D" unique_id=196497201]
+collision_layer = 4
+collision_mask = 1
+floor_snap_length = 24.0
+script = ExtResource("2_boss_script")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1132143203]
-position = Vector2(152.00003, -87)
-scale = Vector2(0.6196388, 0.63995486)
+position = Vector2(0, -112.06)
+scale = Vector2(0.52, 0.52)
 sprite_frames = SubResource("SpriteFrames_pco66")
-autoplay = "default"
-frame_progress = 0.88611186
+animation = &"idle"
+autoplay = "idle"
 
-[node name="killzone" parent="AnimatedSprite2D" unique_id=481925406 instance=ExtResource("2_jf5jn")]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(15, -85)
+shape = SubResource("BossBody")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/killzone" unique_id=1158239748]
-position = Vector2(-3, 44)
-shape = SubResource("CircleShape2D_661gy")
+[node name="Health" type="Node" parent="."]
+script = ExtResource("3_health")
+max_health = 300
+
+[node name="ContactArea" type="Area2D" parent="." groups=["enemy_hitbox"]]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ContactArea"]
+position = Vector2(15, -85)
+shape = SubResource("BossContact")
+
+[node name="AttackArea" type="Area2D" parent="."]
+position = Vector2(75, -80)
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+shape = SubResource("BossAttack")

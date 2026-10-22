@@ -7,6 +7,8 @@
 [ext_resource type="Script" uid="uid://cmal2frhpwkhu" path="res://scripts/ui/status_label.gd" id="5_4qk33"]
 [ext_resource type="Script" uid="uid://dgis36phv15cm" path="res://scripts/ui/score_label.gd" id="6_tldsg"]
 
+[ext_resource type="Script" path="res://scripts/ui/ammo_label.gd" id="7_ammo_script"]
+
 [node name="HUD" type="CanvasLayer" unique_id=615369625]
 
 [node name="HealthLabel" type="Label" parent="." unique_id=575907161]
@@ -44,3 +46,13 @@ offset_bottom = 123.0
 theme_override_fonts/font = ExtResource("3_x6mpk")
 theme_override_font_sizes/font_size = 20
 script = ExtResource("6_tldsg")
+
+[node name="AmmoLabel" type="Label" parent="."]
+offset_left = 16.0
+offset_top = 130.0
+offset_right = 210.0
+offset_bottom = 155.0
+theme_override_fonts/font = ExtResource("3_x6mpk")
+theme_override_font_sizes/font_size = 20
+text = "Ammo: 0"
+script = ExtResource("7_ammo_script")
