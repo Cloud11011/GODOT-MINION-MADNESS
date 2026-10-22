@@ -4,12 +4,15 @@
 [ext_resource type="Script" uid="uid://b3p8invcfk3qf" path="res://scripts/interactables/health_pickup.gd" id="1_gt6v3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gt6v3"]
-radius = 122.14745
+radius = 9.0
 
 [node name="HealthPickup" type="Area2D" unique_id=1693404322]
+collision_layer = 0
+collision_mask = 2
 script = ExtResource("1_gt6v3")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1487171095]
+scale = Vector2(0.036, 0.036)
 texture = ExtResource("1_73b0q")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1197765650]

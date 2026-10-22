@@ -140,6 +140,9 @@ func die() -> void:
 	if defeated:
 		return
 	defeated = true
+	var drop_component := get_node_or_null("DropOnDeath")
+	if drop_component != null and drop_component.has_method("spawn_drop"):
+		drop_component.spawn_drop(global_position)
 	target_player = null
 	velocity = Vector2.ZERO
 	set_physics_process(false)
