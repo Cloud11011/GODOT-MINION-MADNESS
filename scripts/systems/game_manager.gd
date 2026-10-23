@@ -15,6 +15,8 @@ var score: int = 0
 var lives: int = MAX_LIVES
 var high_score: int = 0
 var bananas: int = 0
+# Tests can disable persistent saves to protect existing user://highscore.save.
+var persistent_saves_enabled := true
 
 # Ammunition is distinct from the lifetime collection score.
 func add_bananas(amount: int = 1) -> void:
@@ -35,6 +37,43 @@ func use_banana() -> bool:
 # Checkpoint
 var has_checkpoint: bool = false
 var checkpoint_position: Vector2 = Vector2.ZERO
+var checkpoint_score: int = 0
+var checkpoint_bananas: int = 0
+# A pickup's stable scene path is its identity for the current level.
+# Reloading after death makes bananas appear again but never grants a second reward
+# for bananas already credited at the active checkpoint.
+var credited_banana_ids: Dictionary = {}
+var checkpoint_credited_banana_ids: Dictionary = {}
+
+
+func collect_banana(pickup_path: NodePath) -> bool:
+	var key := str(pickup_path)
+	if credited_banana_ids.has(key):
+		return false
+	credited_banana_ids[key] = true
+	add_score(1)
+	add_bananas(1)
+	return true
+
+
+func restore_checkpoint_inventory() -> void:
+	score = checkpoint_score if has_checkpoint else 0
+	bananas = checkpoint_bananas if has_checkpoint else 0
+	credited_banana_ids = checkpoint_credited_banana_ids.duplicate() if has_checkpoint else {}
+	score_changed.emit(score)
+	bananas_changed.emit(bananas)
+
+
+func restart_current_level() -> void:
+	get_tree().paused = false
+	lives = MAX_LIVES
+	score = 0
+	bananas = 0
+	clear_checkpoint()
+	lives_changed.emit(lives)
+	score_changed.emit(score)
+	bananas_changed.emit(bananas)
+	get_tree().reload_current_scene.call_deferred()
 
 
 func _ready() -> void:
@@ -46,15 +85,15 @@ func add_score(amount: int) -> void:
 	score += amount
 	score_changed.emit(score)
 
-	if score > high_score:
-		high_score = score
-		save_high_score()
+	# Best score is banked at checkpoints or level completion, not by temporary
+	# pickups that will be rolled back on death.
 
 
 # LIVES
 func lose_life() -> void:
 	lives -= 1
 	lives_changed.emit(lives)
+	restore_checkpoint_inventory()
 
 	if lives <= 0:
 		game_over()
@@ -77,6 +116,7 @@ func start_new_game() -> void:
 
 # CHANGE LEVEL
 func go_to_level(path: String) -> void:
+	save_high_score()
 	clear_checkpoint()
 	get_tree().change_scene_to_file.call_deferred(path)
 
@@ -102,15 +142,27 @@ func back_to_menu() -> void:
 func set_checkpoint(pos: Vector2) -> void:
 	checkpoint_position = pos
 	has_checkpoint = true
+	checkpoint_score = score
+	checkpoint_bananas = bananas
+	checkpoint_credited_banana_ids = credited_banana_ids.duplicate()
+	save_high_score()
 
 
 func clear_checkpoint() -> void:
 	has_checkpoint = false
 	checkpoint_position = Vector2.ZERO
+	checkpoint_score = 0
+	checkpoint_bananas = 0
+	checkpoint_credited_banana_ids.clear()
+	credited_banana_ids.clear()
 
 
 # SAVE HIGH SCORE
 func save_high_score() -> void:
+	if not persistent_saves_enabled:
+		return
+	if score > high_score:
+		high_score = score
 	var file := FileAccess.open(SAVE_PATH, FileAccess.WRITE)
 
 	if file:

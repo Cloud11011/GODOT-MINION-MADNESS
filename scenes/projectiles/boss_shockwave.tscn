@@ -7,3 +7,6 @@ z_index = 4
 script = ExtResource("1")
 targets_player = true
 lifetime = 4.0
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+rect = Rect2(-24, -24, 48, 48)

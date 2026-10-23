@@ -18,4 +18,4 @@ func _on_body_entered(body: Node2D) -> void:
 	activated = true
 	GameManager.set_checkpoint(respawn_point.global_position)
 
-	print("Checkpoint activated: ", GameManager.checkpoint_position)
+	# The GameManager also snapshots score, ammo, and collected banana identities.

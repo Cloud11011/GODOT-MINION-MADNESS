@@ -11,10 +11,14 @@
 [ext_resource type="PackedScene" uid="uid://bhd2bnltaxq76" path="res://scenes/ui/pause_menu.tscn" id="10_pause_menu"]
 
 [ext_resource type="Script" path="res://scripts/systems/level_exit.gd" id="11_boss_exit_script"]
+[ext_resource type="Script" uid="uid://cdy0bisqqbgh5" path="res://scripts/interactables/checkpoint.gd" id="13_checkpoint_script"]
 [ext_resource type="PackedScene" path="res://scenes/bosses/boss_fight.tscn" id="12_boss_arena"]
 
 [sub_resource type="RectangleShape2D" id="BossExitShape"]
 size = Vector2(64, 100)
+
+[sub_resource type="RectangleShape2D" id="Level2CheckpointShape"]
+size = Vector2(34, 95)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eqxsl"]
 texture = ExtResource("2_pbc48")
@@ -463,6 +467,19 @@ position = Vector2(1078, 118)
 [node name="PauseMenu" parent="CanvasLayer" unique_id=675147520 instance=ExtResource("10_pause_menu")]
 offset_top = -8.0
 offset_bottom = -8.0
+
+[node name="Checkpoint1" type="Area2D" parent="."]
+position = Vector2(590, 572)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("13_checkpoint_script")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoint1"]
+position = Vector2(0, -16)
+shape = SubResource("Level2CheckpointShape")
+
+[node name="RespawnPoint" type="Marker2D" parent="Checkpoint1"]
+position = Vector2(0, 13)
 
 [node name="BossExit" type="Area2D" parent="."]
 position = Vector2(1110, 95)
