@@ -1,0 +1,15 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/combat/melee_attack.gd" id="1_melee"]
+
+[sub_resource type="RectangleShape2D" id="MeleeShape"]
+size = Vector2(24, 23)
+
+[node name="MeleeHitbox" type="Area2D"]
+collision_layer = 0
+collision_mask = 4
+monitoring = false
+script = ExtResource("1_melee")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("MeleeShape")

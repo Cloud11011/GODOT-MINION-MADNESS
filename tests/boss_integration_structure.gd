@@ -17,6 +17,14 @@ func _check(ok: bool, description: String) -> void:
 		push_error("FAIL: " + description)
 
 
+func _finish(exit_code: int) -> void:
+	var main_track := root.get_node_or_null("MainTrack") as AudioStreamPlayer2D
+	if main_track != null:
+		main_track.stop()
+	await create_timer(0.15).timeout
+	quit.call_deferred(exit_code)
+
+
 func _run() -> void:
 	_check(InputMap.has_action("esc"), "Pause Menu control exists")
 	_check(InputMap.has_action("throw_banana"), "banana attack control exists")
@@ -25,7 +33,7 @@ func _run() -> void:
 	var boss_scene := load("res://scenes/bosses/boss_fight.tscn") as PackedScene
 	_check(level1 != null and level2 != null and boss_scene != null, "all campaign scenes load")
 	if level1 == null or level2 == null or boss_scene == null:
-		quit(1)
+		await _finish(1)
 		return
 	var one := level1.instantiate()
 	var two := level2.instantiate()
@@ -53,4 +61,4 @@ func _run() -> void:
 	two.free()
 	boss.free()
 	print("Boss integration structure: %d/%d checks passed" % [checks - failures, checks])
-	quit(0 if failures == 0 else 1)
+	await _finish(0 if failures == 0 else 1)

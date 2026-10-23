@@ -21,4 +21,11 @@ func _on_body_entered(body: Node2D) -> void:
 		return
 
 	collected = true
+	var sfx := AudioStreamPlayer2D.new()
+	sfx.stream = preload("res://assets/audio/sfx/power_up.wav")
+	sfx.bus = &"Master"
+	get_tree().current_scene.add_child(sfx)
+	sfx.global_position = global_position
+	sfx.finished.connect(sfx.queue_free)
+	sfx.play()
 	queue_free()

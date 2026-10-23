@@ -11,6 +11,9 @@ var shockwave_shape: CircleShape2D
 
 func _ready() -> void:
 	add_to_group("combat_projectiles")
+	var notifier := get_node_or_null("VisibleOnScreenNotifier2D") as VisibleOnScreenNotifier2D
+	if notifier != null:
+		notifier.screen_exited.connect(_on_screen_exited)
 	if targets_player:
 		add_to_group("boss_projectiles")
 		shockwave_shape = CircleShape2D.new()
@@ -61,6 +64,14 @@ func _physics_process(delta: float) -> void:
 	global_position = next_position
 	if not targets_player:
 		$Sprite2D.rotation += delta * 12.0 * signf(velocity.x)
+
+
+func _on_screen_exited() -> void:
+	# Emits only after having been visible; lifetime remains a fallback for
+	# projectiles launched outside the camera.
+	if is_inside_tree() and not spent:
+		spent = true
+		queue_free()
 
 
 func _draw() -> void:

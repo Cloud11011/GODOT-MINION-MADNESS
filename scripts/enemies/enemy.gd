@@ -23,6 +23,15 @@ var target_player: Node2D
 func _ready() -> void:
 	add_to_group("enemies")
 	start_x = global_position.x
+	# An independent Health component supports melee damage without changing
+	# enemy sprite sheets, movement or stomp logic.
+	var health := get_node_or_null("Health") as Health
+	if health == null:
+		health = Health.new()
+		health.name = "Health"
+		health.max_health = 50
+		add_child(health)
+	health.died.connect(die)
 	detection_zone.body_entered.connect(_on_detection_zone_body_entered)
 	detection_zone.body_exited.connect(_on_detection_zone_body_exited)
 
