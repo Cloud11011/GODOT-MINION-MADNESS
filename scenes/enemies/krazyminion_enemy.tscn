@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://cemowaubtxlr0" path="res://scripts/enemies/enemy.gd" id="1_y7e38"]
 [ext_resource type="PackedScene" uid="uid://dtrbka1ef726o" path="res://scenes/interactables/killzone.tscn" id="2_w8xp2"]
 [ext_resource type="Script" uid="uid://bphe73i6a3cw1" path="res://scripts/enemies/detection_zone.gd" id="4_kf4lv"]
-[ext_resource type="Script" path="res://scripts/interactables/drop_on_death.gd" id="5_health_drop"]
+[ext_resource type="Script" uid="uid://bal6xkbcog177" path="res://scripts/interactables/drop_on_death.gd" id="5_health_drop"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hstj3"]
 atlas = ExtResource("1_0f7nw")
@@ -184,6 +184,5 @@ script = ExtResource("4_kf4lv")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionZone" unique_id=1505401286]
 shape = SubResource("CircleShape2D_jx0e8")
 
-[node name="DropOnDeath" type="Node" parent="."]
+[node name="DropOnDeath" type="Node" parent="." unique_id=844905290]
 script = ExtResource("5_health_drop")
-drop_chance = 0.35

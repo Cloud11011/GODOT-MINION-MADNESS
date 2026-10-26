@@ -18,7 +18,6 @@ var bananas: int = 0
 # Tests can disable persistent saves to protect existing user://highscore.save.
 var persistent_saves_enabled := true
 
-# Ammunition is distinct from the lifetime collection score.
 func add_bananas(amount: int = 1) -> void:
 	if amount <= 0:
 		return
